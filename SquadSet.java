@@ -7,22 +7,24 @@ public class SquadSet {
     final List<Integer> A = Arrays.asList(1, 2, 3);
     final List<Integer> B = Arrays.asList(1, 3);
 
-    List<Integer> getSum() {
+    List<Integer> getSum(List<Integer> A, List<Integer> B) {
         List<Integer> sum = new ArrayList<>(A);
-        sum.addAll(B);
-        sum.removeAll(getIntersect());
-        sum.addAll(getIntersect());
+        for (int element : B) {
+            if (!sum.contains(element)) {
+                sum.add(element);
+            }
+        }
         return sum;
     }
 
-    List<Integer> getComplement() {
+    List<Integer> getComplement(List<Integer> A, List<Integer> B) {
         List<Integer> complement = new ArrayList<>(A);
         complement.addAll(B);
-        complement.removeAll(getIntersect());
+        complement.removeAll(getIntersect(A, B));
         return complement;
     }
 
-    List<Integer> getIntersect() {
+    List<Integer> getIntersect(List<Integer> A, List<Integer> B) {
         List<Integer> intersect = new LinkedList<>();
         for (int element : B) {
             if (A.contains(element)) {
@@ -32,7 +34,7 @@ public class SquadSet {
         return intersect;
     }
 
-    Integer[] getResult(List<Integer> input) {
-        return input.toArray(new Integer[0]);
+    Integer[] getResult(List<Integer> list) {
+        return list.toArray(new Integer[0]);
     }
 }

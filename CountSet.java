@@ -16,23 +16,21 @@ public class CountSet {
         return 0;
     }
 
-    List<Integer> getSum() {
+    List<Integer> getSum(List<Integer> A, List<Integer> B) {
         List<Integer> sum = new ArrayList<>(A);
         sum.addAll(B);
-//        sum.removeAll(getIntersect());
-//        sum.addAll(getIntersect());
         return sum;
     }
 
-    List<Integer> getComplement() {
+    List<Integer> getComplement(List<Integer> A, List<Integer> B) {
         List<Integer> complement = new ArrayList<>(A);
-        for(int element : B){
+        for (int element : B) {
             complement.remove(Integer.valueOf(element));
         }
         return complement;
     }
 
-    List<Integer> getIntersect() {
+    List<Integer> getIntersect(List<Integer> A, List<Integer> B) {
         List<Integer> intersect = new LinkedList<>();
         for (int element : B) {
             if (A.contains(element) && !intersect.contains(element)) {
@@ -42,13 +40,13 @@ public class CountSet {
         return intersect;
     }
 
-    Object getResult(List<Integer> input) {
-        return input.toArray(new Integer[0]);
+    Object getResult(List<Integer> list) {
+        return list.toArray(new Integer[0]);
     }
 
-    HashMap<Integer, Integer> count(List<Integer> input) {
+    HashMap<Integer, Integer> count(List<Integer> list) {
         HashMap<Integer, Integer> map = new HashMap<>();
-        for (int index : input) {
+        for (int index : list) {
             if (!map.containsKey(index)) {
                 map.put(index, 1);
             } else {
