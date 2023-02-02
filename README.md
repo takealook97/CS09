@@ -47,6 +47,31 @@ List<Integer> getComplement(List<Integer> A, List<Integer> B) {
 - List A와 B를 모두 complement에 넣는다.
 - complement에서 A와 B의 교집합을 모두 제거한다.
 
+### intersect(교집합) 메서드
+```java
+List<Integer> getIntersect(List<Integer> A, List<Integer> B) {
+    List<Integer> intersect = new LinkedList<>();
+    for (int element : B) {
+        if (A.contains(element)) {
+            intersect.add(element);
+        }
+    }
+    return intersect;
+}
+```
+- List A를 기준으로 B의 원소를 가지고 있는지 여부를 판단
+- 가지고 있을 경우 intersect에 추가한다.
+
+### resultAll 메서드
+```java
+Integer[] getResult(List<Integer> list) {
+    return list.toArray(new Integer[0]);
+}
+```
+- 리스트를 받으면 모든 요소를 1차원 배열로 리턴한다.
+
+## CountSet 클래스
+### 
 
 
 ---
