@@ -8,11 +8,11 @@ public class SquadSet {
     private final List<Integer> B = Arrays.asList(1, 3);
 
     public static void main(String[] args) {
-        SquadSet squadset = new SquadSet();
-        System.out.println(squadset.getIntersect());
-        System.out.println(squadset.getComplement());
-        System.out.println(squadset.getSum());
-        System.out.println(Arrays.toString(squadset.getResult(squadset.A)));
+//        SquadSet squadset = new SquadSet();
+//        System.out.println(squadset.getIntersect());
+//        System.out.println(squadset.getComplement());
+//        System.out.println(squadset.getSum());
+//        System.out.println(Arrays.toString(squadset.getResult(squadset.A)));
     }
 
     List<Integer> getSum() {
@@ -41,7 +41,6 @@ public class SquadSet {
     }
 
     Integer[] getResult(List<Integer> input) {
-        Integer[] result = input.toArray(new Integer[input.size()]);
-        return result;
+        return input.toArray(new Integer[0]);
     }
 }
