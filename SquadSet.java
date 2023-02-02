@@ -4,16 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class SquadSet {
-    private final List<Integer> A = Arrays.asList(1, 2, 3);
-    private final List<Integer> B = Arrays.asList(1, 3);
-
-    public static void main(String[] args) {
-//        SquadSet squadset = new SquadSet();
-//        System.out.println(squadset.getIntersect());
-//        System.out.println(squadset.getComplement());
-//        System.out.println(squadset.getSum());
-//        System.out.println(Arrays.toString(squadset.getResult(squadset.A)));
-    }
+    final List<Integer> A = Arrays.asList(1, 2, 3);
+    final List<Integer> B = Arrays.asList(1, 3);
 
     List<Integer> getSum() {
         List<Integer> sum = new ArrayList<>(A);
