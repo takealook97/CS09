@@ -13,10 +13,11 @@ public class Output {
     void printCountSet() {
         CountSet countset = new CountSet();
         System.out.println("---CountSet---");
-        System.out.println("A Count집합 = " + countset.count(countset.A));
-        System.out.println("B Count집합 = " + countset.count(countset.B));
-        System.out.println("합집합(sum) = " + countset.count(countset.getSum(countset.A, countset.B)));
-        System.out.println("차집합(complement) = " + countset.count(countset.getComplement(countset.A, countset.B)));
-        System.out.println("교집합(intersect) = " + countset.count(countset.getIntersect(countset.A, countset.B)));
+        System.out.println("A Count집합 = " + countset.getResult(countset.A));
+        System.out.println("B Count집합 = " + countset.getResult(countset.B));
+        System.out.println("합집합(sum) = " + countset.getResult(countset.getSum(countset.A, countset.B)));
+        System.out.println("A Count집합 = " + countset.getResult(countset.A));
+        System.out.println("차집합(complement) = " + countset.getResult(countset.getComplement(countset.A, countset.B)));
+        System.out.println("교집합(intersect) = " + countset.getResult(countset.getIntersect(countset.A, countset.B)));
     }
 }

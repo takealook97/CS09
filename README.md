@@ -71,6 +71,9 @@ Integer[] getResult(List<Integer> list) {
 - 리스트를 받으면 모든 요소를 1차원 배열로 리턴한다.
 
 ## CountSet 클래스
+- List가 Array를 들고있는 형태
+- Array는 크기가 2이며 인덱스 0에는 원소, 인덱스 1에는 개수를 가지고 있다.
+
 ### 
 
 

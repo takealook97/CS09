@@ -1,58 +1,83 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CountSet {
-    final List<Integer> A = Arrays.asList(1, 1, 2, 2, 3, 3);
-    final List<Integer> B = Arrays.asList(1, 3, 3, 3);
+    final List<int[]> A = Arrays.asList(new int[]{1, 2}, new int[]{2, 2}, new int[]{3, 2});
+    final List<int[]> B = Arrays.asList(new int[]{1, 1}, new int[]{3, 3});
 
-    List<Integer> append(int input) {
-        return null;
+    List<int[]> append(List<int[]> list, int input) {
+        for (int[] element : list) {
+            if (element[0] == input) {
+                element[1]++;
+                return list;
+            }
+        }
+        list.add(new int[]{input, 1});
+        return list;
     }
 
-    List<Integer> remove(int input) {
-        return null;
+    List<int[]> remove(List<int[]> list, int input) {
+        for (int[] element : list) {
+            if (element[0] == input) {
+                element[1]--;
+                if (element[1] <= 0) {
+                    list.remove(element);
+                }
+                break;
+            }
+        }
+        return list;
     }
 
-    int countFor(int input) {
-        return 0;
+    int countFor(List<int[]> list, int input) {
+        int count = 0;
+        for (int[] element : list) {
+            if (element[0] == input) {
+                count = element[1];
+                break;
+            }
+        }
+        return count;
     }
 
-    List<Integer> getSum(List<Integer> A, List<Integer> B) {
-        List<Integer> sum = new ArrayList<>(A);
-        sum.addAll(B);
+    List<int[]> getSum(List<int[]> A, List<int[]> B) {
+        List<int[]> sum = new ArrayList<>(A);
+        for (int[] element : B) {
+            for (int i = 0; i < element[1]; i++) {
+                sum = append(sum, element[0]);
+            }
+        }
         return sum;
     }
 
-    List<Integer> getComplement(List<Integer> A, List<Integer> B) {
-        List<Integer> complement = new ArrayList<>(A);
-        for (int element : B) {
-            complement.remove(Integer.valueOf(element));
+    List<int[]> getComplement(List<int[]> A, List<int[]> B) {
+        List<int[]> complement = new ArrayList<>(A);
+        for (int[] element : B) {
+            for (int i = 0; i < element[1]; i++) {
+                complement = remove(complement, element[0]);
+            }
         }
         return complement;
     }
 
-    List<Integer> getIntersect(List<Integer> A, List<Integer> B) {
-        List<Integer> intersect = new LinkedList<>();
-        for (int element : B) {
-            if (A.contains(element) && !intersect.contains(element)) {
-                intersect.add(element);
+    List<int[]> getIntersect(List<int[]> A, List<int[]> B) {
+        List<int[]> intersect = new ArrayList<>();
+        for (int[] elementA : A) {
+            for (int[] elementB : B) {
+                if (elementA[0] == elementB[0]) {
+                    intersect.add(new int[]{elementB[0], 1});
+                }
             }
         }
         return intersect;
     }
 
-    Object getResult(List<Integer> list) {
-        return list.toArray(new Integer[0]);
-    }
-
-    HashMap<Integer, Integer> count(List<Integer> list) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for (int index : list) {
-            if (!map.containsKey(index)) {
-                map.put(index, 1);
-            } else {
-                map.put(index, map.get(index) + 1);
-            }
+    Object getResult(List<int[]> list) {
+        StringBuilder sb = new StringBuilder();
+        for (int[] element : list) {
+            sb.append(Arrays.toString(element)).append(" ");
         }
-        return map;
+        return sb.toString();
     }
 }
