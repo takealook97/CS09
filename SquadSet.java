@@ -34,7 +34,7 @@ public class SquadSet {
         return intersect;
     }
 
-    Object getResult(List<int[]> list) {
+    Object[] getResult(List<Integer> list) {
         return list.toArray();
     }
 }
