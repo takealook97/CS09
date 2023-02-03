@@ -3,8 +3,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CountSet {
-    final List<int[]> A = Arrays.asList(new int[]{1, 2}, new int[]{2, 2}, new int[]{3, 2});
-    final List<int[]> B = Arrays.asList(new int[]{1, 1}, new int[]{3, 3});
+    final List<int[]> A = List.of(new int[]{1, 2}, new int[]{2, 2}, new int[]{3, 2});
+    final List<int[]> B = List.of(new int[]{1, 1}, new int[]{3, 3});
 
     List<int[]> append(List<int[]> list, int input) {
         for (int[] element : list) {
@@ -41,18 +41,18 @@ public class CountSet {
         return count;
     }
 
-    List<int[]> getSum(List<int[]> A, List<int[]> B) {
-        List<int[]> sum = new ArrayList<>(A);
+    List<int[]> getSum(List<int[]> B) {
+        List<int[]> sum = new ArrayList<>(new CountSet().A);
         for (int[] element : B) {
             for (int i = 0; i < element[1]; i++) {
-                sum = append(sum, element[0]);
+                append(sum, element[0]);
             }
         }
         return sum;
     }
 
-    List<int[]> getComplement(List<int[]> A, List<int[]> B) {
-        List<int[]> complement = new ArrayList<>(A);
+    List<int[]> getComplement(List<int[]> B) {
+        List<int[]> complement = new ArrayList<>(new CountSet().A);
         for (int[] element : B) {
             for (int i = 0; i < element[1]; i++) {
                 complement = remove(complement, element[0]);
@@ -61,9 +61,9 @@ public class CountSet {
         return complement;
     }
 
-    List<int[]> getIntersect(List<int[]> A, List<int[]> B) {
+    List<int[]> getIntersect(List<int[]> B) {
         List<int[]> intersect = new ArrayList<>();
-        for (int[] elementA : A) {
+        for (int[] elementA : new CountSet().A) {
             for (int[] elementB : B) {
                 if (elementA[0] == elementB[0]) {
                     intersect.add(new int[]{elementB[0], 1});
