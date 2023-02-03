@@ -70,6 +70,8 @@ Object[] getResult(List<Integer> list) {
 ```
 - 리스트를 받으면 모든 요소를 1차원 배열로 리턴한다.
 
+---
+
 ## CountSet 클래스
 ```java
 final List<int[]> A = List.of(new int[]{1, 2}, new int[]{2, 2}, new int[]{3, 2});
@@ -188,7 +190,7 @@ Object getResult(List<int[]> list) {
 }
 ```
 - 각각의 원소 배열([원소:갯수] 형태)을 StringBuilder에 넣어준다.
-- String(Objet)형태로 리턴한다. 
+- String(Object)형태로 리턴한다. 
 
 ---
 
